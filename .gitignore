@@ -1,0 +1,43 @@
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Env files
+.env
+.env.local
+.env.development
+.env.production
+.env.test
+
+# Build outputs
+dist/
+build/
+.next/
+out/
+
+# Logs
+logs/
+*.log
+
+# OS noise
+.DS_Store
+Thumbs.db
+
+# Editor noise
+.vscode/
+.idea/
+
+# Coverage, cache
+coverage/
+.cache/
+.next/cache/
+
+# Mongoose local DB dumps (if any)
+dump/
+*.bson
+*.gz
+
+# Uploaded files (if your app supports uploads)
+uploads/
