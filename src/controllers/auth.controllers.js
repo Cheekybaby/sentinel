@@ -164,3 +164,14 @@ export const signout = async (req, res) => {
         })
     }
 }
+
+export const check = async (req, res) => {
+  try {
+    res.status(200).json(req.user);
+  } catch(error) {
+    console.error("Error in check controller", error);
+    res.status(500).json({
+      message: "Internal Server Error"
+    })
+  }
+}
