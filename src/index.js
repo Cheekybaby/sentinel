@@ -1,13 +1,16 @@
 // Imports
 import express from 'express';
 import dotenv from "dotenv";
+dotenv.config();
 import cookieParser from 'cookie-parser';
 import cors from "cors";
 import { connectDB } from './lib/db.js';
 import authRoutes from './routes/auth.routes.js';
 import verifyRoutes from './routes/verify.routes.js';
+import { protectRoute } from './middleware/auth.middleware.js';
+import taskRouter from './routes/taskmaster.route.js';
+
 // Config
-dotenv.config();
 const app = express();
 const ALLOWED_ORIGINS = process.env.ALLOWED_ORIGINS.split(',');
 
@@ -31,6 +34,8 @@ app.use(cors({
 
 app.use('/api/v1/auth', authRoutes);
 app.use('/api/v1/verify', verifyRoutes);
+app.use('/api/v1/tasks', protectRoute, taskRouter);
+
 
 const PORT = process.env.PORT;
 
